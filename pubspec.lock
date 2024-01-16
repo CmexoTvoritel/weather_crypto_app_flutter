@@ -96,6 +96,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  get_it:
+    dependency: "direct main"
+    description:
+      name: get_it
+      sha256: d0b88dc35a7f97fd91fec0cf8f165abd97a57977968d8fc02ba0bc92e14ba07e
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.6.6"
   http:
     dependency: "direct main"
     description:
@@ -144,6 +152,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.10.0"
+  mvvm:
+    dependency: "direct main"
+    description:
+      name: mvvm
+      sha256: "18dbca5d5e77b465c188e5f0fe900c42e0ec79f2db8124930d29cdc88aa6048c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.5.2"
+  nested:
+    dependency: transitive
+    description:
+      name: nested
+      sha256: "03bac4c528c64c95c722ec99280375a6f2fc708eec17c7b3f07253b626cd2a20"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   path:
     dependency: transitive
     description:
@@ -192,6 +216,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
+  provider:
+    dependency: transitive
+    description:
+      name: provider
+      sha256: "9a96a0a19b594dbc5bf0f1f27d2bc67d5f95957359b461cd9feb44ed6ae75096"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.1.1"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -317,6 +349,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  view_model_x:
+    dependency: "direct main"
+    description:
+      name: view_model_x
+      sha256: "7ce5c5602c043da0426db73a582446ada1c3c186728fd3c24108276ee8c9691d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.1"
   web:
     dependency: transitive
     description:
