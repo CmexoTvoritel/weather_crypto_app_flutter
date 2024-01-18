@@ -15,7 +15,6 @@ class CryptoScreen extends StatefulWidget {
 class _CryptoScreenState extends State<CryptoScreen> {
 
   final CryptoViewModel viewModel = locator<CryptoViewModel>();
-  List<CryptoItemModel> cryptoList = [];
 
   @override
   void initState() {
@@ -38,15 +37,43 @@ class _CryptoScreenState extends State<CryptoScreen> {
             child: ListView.builder(
                 itemCount: items.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Center(
-                    child: Card(
-                      child: Row(
-                          mainAxisSize: MainAxisSize.max,
+                  return Column(
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
                         children: [
-                          Text(items[index].name)
+                          Padding(
+                            padding: EdgeInsets.only(left: 16.0),
+                            child: Image.network(
+                                width: 24.0,
+                                height: 24.0,
+                                items[index].image
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 16.0, top: 16.0, bottom: 16.0),
+                            child: Text(items[index].name),
+                          ),
+                          const Spacer(),
+                          Padding(
+                            padding: EdgeInsets.only(right: 16.0),
+                            child: Checkbox(
+                              value: items[index].isChecked,
+                              onChanged: (newValue) {
+                                setState(() {
+                                  _changeCryptoInformation(items[index], index);
+                                });
+                              },
+                            ),
+                          )
                         ],
                       ),
+                      Container(
+                      height: 1.0,
+                      color: Colors.black12,
+                      width: double.infinity,
                     ),
+                  ],
                   );
                 }
             ),
@@ -54,6 +81,10 @@ class _CryptoScreenState extends State<CryptoScreen> {
         },
       )
     );
+  }
+
+  void _changeCryptoInformation(CryptoItemModel cryptoItem, int index) {
+    viewModel.changeStateOfList(cryptoItem, index);
   }
   
 }

@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:view_model_x/view_model_x.dart';
 import 'package:weather_crypto_app_flutter/managers/locator.dart';
 import 'package:weather_crypto_app_flutter/models/main/main_model.dart';
 import 'package:weather_crypto_app_flutter/modules/crypto/crypto_screen.dart';
+import 'package:weather_crypto_app_flutter/modules/main/main_viewmodel.dart';
 import 'package:weather_crypto_app_flutter/modules/weathermap/weather_map_screen.dart';
-import 'package:weather_crypto_app_flutter/repository/main_repository.dart';
+import 'package:weather_crypto_app_flutter/preferences/shared_preferences.dart';
 
-List<MainMenuModel> menuList = [];
-late MainRepository repository;
+late MainViewModel _viewModel;
+late SharedPref _sharedPref;
 
 Future<void> main() async {
   await setupLocator();
-  repository = locator<MainRepository>();
-  menuList = repository.getMenuList();
+  _viewModel = locator<MainViewModel>();
+  _sharedPref = locator<SharedPref>();
   runApp(const MyApp());
+  await _sharedPref.init();
 }
 
 class MyApp extends StatelessWidget {
@@ -44,23 +47,28 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-        itemCount: menuList.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Center(
-            child: Card(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Text(menuList[index].nameCard),
-                  TextButton(
-                    child: const Text('Выбрать'),
-                    onPressed: () { _navigateToChoose(menuList[index].typeCard, context); },
-                  )
-                ],
-              ),
+      body: StateFlowBuilder(
+        stateFlow: _viewModel.menuListStateFlow,
+        builder: (context, List<MainMenuModel> menuList) {
+          return ListView.builder(
+            itemCount: menuList.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Center(
+                child: Card(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [ //TODO: Visibility like container
+                      Text(menuList[index].nameCard),
+                      TextButton(
+                        child: const Text('Выбрать'),
+                        onPressed: () { _navigateToChoose(menuList[index].typeCard, context); },
+                      )
+                    ],
+                  ),
 
-            ),
+                ),
+              );
+            },
           );
         },
       )

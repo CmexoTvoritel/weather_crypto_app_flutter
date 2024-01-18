@@ -22,4 +22,10 @@ class CryptoViewModel extends ViewModel {
     super.dispose();
   }
 
+  void changeStateOfList(CryptoItemModel cryptoItem, int index) async {
+    await _repository.synchronizeCryptoList(cryptoItem, index).then((value) {
+      listCryptoStateFlow.value = value;
+    });
+  }
+
 }
