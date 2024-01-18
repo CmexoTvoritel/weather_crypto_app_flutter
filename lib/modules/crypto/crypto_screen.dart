@@ -36,6 +36,7 @@ class _CryptoScreenState extends State<CryptoScreen> {
         builder: (context, List<CryptoItemModel> items) {
           return Container(
             child: ListView.builder(
+                itemCount: items.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Center(
                     child: Card(

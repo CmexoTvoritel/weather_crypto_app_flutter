@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:weather_crypto_app_flutter/managers/locator.dart';
 import 'package:weather_crypto_app_flutter/models/main/main_model.dart';

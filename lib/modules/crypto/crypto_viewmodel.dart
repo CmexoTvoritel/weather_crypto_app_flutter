@@ -19,7 +19,6 @@ class CryptoViewModel extends ViewModel {
 
   @override
   void dispose() {
-    listCryptoStateFlow.dispose();
     super.dispose();
   }
 

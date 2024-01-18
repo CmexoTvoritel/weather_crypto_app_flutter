@@ -30,7 +30,7 @@ class MainRepository {
       final answer = response.listOfCrypto?.map((item) => 
           CryptoItemModel(name: item.name, isChecked: false)
       );
-      return answer as List<CryptoItemModel>;
+      return List<CryptoItemModel>.from(answer!);
     } else {
       return List.empty();
     }
