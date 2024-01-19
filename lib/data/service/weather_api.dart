@@ -1,17 +1,34 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
+import 'package:weather_crypto_app_flutter/models/response/weather_response_model.dart';
 
 class WeatherApi {
 
-  //TODO:
-  get url => "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false&price_change_percentage=1h";
+  get _url => "https://api.openweathermap.org/data/2.5/weather";
 
-  void fetchData() async {
-    final response = await http.get(Uri.parse(url));
+  String _getFinalURL(double lat, double lon) {
+    String answer = _url;
+    answer += "?lat=$lat&lon=$lon&appid=22c2b837bf6f65a956144d42d02343bb&lang=ru&units=metric";
+    return answer;
+  }
+
+  Future<ResponseWeatherModel> fetchData(double lat, double lon) async {
+    final finalURL = _getFinalURL(lat, lon);
+    final response = await http.get(Uri.parse(finalURL));
 
     if(response.statusCode == 200) {
-      //TODO: return response with success status
+      Map<String, dynamic> responseData = jsonDecode(response.body);
+      WeatherModel weatherInfo = WeatherModel.fromJson(responseData);
+      return ResponseWeatherModel(
+          weatherInfo: weatherInfo,
+          responseStatus: Status.success
+      );
     } else {
-      //TODO: Exception of response
+      return ResponseWeatherModel(
+          weatherInfo: null,
+          responseStatus: Status.error
+      );
     }
   }
 }

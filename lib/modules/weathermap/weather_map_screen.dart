@@ -39,11 +39,21 @@ class _WeatherMapScreenState extends State<WeatherMapScreen> {
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 16.0),
-                            child: Text(items[index].townShortName),
+                            child: Text(
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                ),
+                                items[index].townShortName
+                            ),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 16.0),
-                            child: Text(items[index].townName),
+                            child: Text(
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                ),
+                                items[index].townName
+                            ),
                           ),
                         ],
                       )

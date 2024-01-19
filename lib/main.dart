@@ -91,9 +91,9 @@ void _navigateToChoose(TypeCard typeCard, BuildContext context) {
 }
 
 /* TODO:
-1. Implement navigation and 4 new pages
-2. Parse UI from Figma for that 4 pages and main page
-3. Complete Api responses for crypto and weather
-4. Learn how to use RV in flutter and implement it in all pages
-5. Improve some things and complete it
+1. Api for weather (done)
+2. Improve views in menu of choose
+3. Pass param to weather map screen
+4. implement search into menu of choose
+5. do design for main page and new menu with ability to move items of menu
  */
