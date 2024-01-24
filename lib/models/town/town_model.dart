@@ -16,13 +16,13 @@ class TownModel {
       {
         'short_name': String townShortName,
         'name': String name,
-        'cordX': double cordX,
-        'cordY': double cordY
+        'cordX': num cordX,
+        'cordY': num cordY
       } => TownModel(
         townShortName: townShortName,
         townName: name,
-        cordX: cordX,
-        cordY: cordY
+        cordX: cordX.toDouble(),
+        cordY: cordY.toDouble()
       ),
       _ => throw const FormatException('Failed to load'),
     };

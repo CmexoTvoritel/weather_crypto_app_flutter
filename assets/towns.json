@@ -2,103 +2,103 @@
   {
     "short_name": "RU",
     "name": "Moscow",
-    "cordX": "55.7522",
-    "cordY": "37.6156"
+    "cordX": 55.7522,
+    "cordY": 37.6156
   },
   {
     "short_name": "RU",
     "name": "Taganrog",
-    "cordX": "47.14",
-    "cordY": "38.54"
+    "cordX": 47.14,
+    "cordY": 38.54
   },
   {
     "short_name": "NYC",
     "name": "New York",
-    "cordX": "40.7143",
-    "cordY": "74.006"
+    "cordX": 40.7143,
+    "cordY": 74.006
   },
   {
     "short_name": "FR",
     "name": "Parish",
-    "cordX": "48.5",
-    "cordY": "2.20"
+    "cordX": 48.5,
+    "cordY": 2.20
   },
   {
     "short_name": "ES",
     "name": "Madrid",
-    "cordX": "40.24",
-    "cordY": "3.42"
+    "cordX": 40.24,
+    "cordY": 3.42
   },
   {
     "short_name": "RU",
     "name": "Rostov",
-    "cordX": "47.22",
-    "cordY": "39.7"
+    "cordX": 47.22,
+    "cordY": 39.7
   },
   {
     "short_name": "RU",
     "name": "Petersburg",
-    "cordX": "59.57",
-    "cordY": "30.19"
+    "cordX": 59.57,
+    "cordY": 30.19
   },
   {
     "short_name": "BY",
     "name": "Minsk",
-    "cordX": "53.9",
-    "cordY": "27.56"
+    "cordX": 53.9,
+    "cordY": 27.56
   },
   {
     "short_name": "US",
     "name": "Washington",
-    "cordX": "38.53",
-    "cordY": "77.02"
+    "cordX": 38.53,
+    "cordY": 77.02
   },
   {
     "short_name": "RU",
     "name": "Voronezh",
-    "cordX": "51.40",
-    "cordY": "39.12"
+    "cordX": 51.40,
+    "cordY": 39.12
   },
   {
     "short_name": "US",
     "name": "Las Vegas",
-    "cordX": "36.10",
-    "cordY": "115.08"
+    "cordX": 36.10,
+    "cordY": 115.08
   },
   {
     "short_name": "DE",
     "name": "Berlin",
-    "cordX": "52.5244",
-    "cordY": "13.4105"
+    "cordX": 52.5244,
+    "cordY": 13.4105
   },
   {
     "short_name": "US",
     "name": "Brooksville",
-    "cordX": "28.5404",
-    "cordY": "-82.3901"
+    "cordX": 28.5404,
+    "cordY": -82.3901
   },
   {
     "short_name": "AU",
     "name": "Sydney",
-    "cordX": "33.52",
-    "cordY": "151.12"
+    "cordX": 33.52,
+    "cordY": 151.12
   },
   {
     "short_name": "JP",
     "name": "Tokyo",
-    "cordX": "35.41",
-    "cordY": "139.41"
+    "cordX": 35.41,
+    "cordY": 139.41
   },
   {
     "short_name": "IT",
     "name": "Rome",
-    "cordX": "41.89",
-    "cordY": "12.51"
+    "cordX": 41.89,
+    "cordY": 12.51
   },
   {
     "short_name": "EG",
     "name": "Cairo",
-    "cordX": "37.0",
-    "cordY": "89.10"
+    "cordX": 37.0,
+    "cordY": 89.10
   }
 ]

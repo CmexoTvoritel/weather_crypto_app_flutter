@@ -1,7 +1,4 @@
-enum Status {
-  success,
-  error,
-}
+import 'package:weather_crypto_app_flutter/models/response/crypto_response_model.dart';
 
 class ResponseWeatherModel {
   WeatherModel? weatherInfo;
@@ -49,45 +46,64 @@ class WeatherModel {
   });
 
   factory WeatherModel.fromJson(Map<String, dynamic> json) {
-    return switch(json) {
-      {
-        'coord': Map<String, dynamic> cord,
-        'weather': List<dynamic> weather,
-        'base': String base,
-        'main': Map<String, dynamic> main,
-        'visibility': num visibility,
-        'wind': Map<String, dynamic> wind,
-        'rain': Map<String, dynamic>? rain,
-        'snow': Map<String, dynamic>? snow,
-        'clouds': Map<String, dynamic> clouds,
-        'dt': num dt,
-        'sys': Map<String, dynamic> sys,
-        'timezone': num timezone,
-        'id': int id,
-        'name': String name,
-        'cod': int cod,
-      } => WeatherModel(
-          cord: CordModel.fromJson(cord),
-          weather:
-            List<CurrentWeatherModel>.from(
-              weather.map((json) => CurrentWeatherModel.fromJson(json))
-            ),
-          base: base,
-          main: MainModel.fromJson(main),
-          visibility: visibility.toDouble(),
-          wind: WindModel.fromJson(wind),
-          rain: rain != null? RainModel.fromJson(rain): null,
-          snow: snow != null? SnowModel.fromJson(snow): null,
-          clouds: CloudsModel.fromJson(clouds),
-          dt: dt.toDouble(),
-          sys: SysModel.fromJson(sys),
-          timezone: timezone.toDouble(),
-          id: id,
-          name: name,
-          cod: cod
-        ),
-      _ => throw const FormatException('Failed to load'),
-    };
+    // return switch(json) {
+    //   {
+    //     'coord': Map<String, dynamic> cord,
+    //     'weather': List<dynamic> weather,
+    //     'base': String base,
+    //     'main': Map<String, dynamic> main,
+    //     'visibility': num visibility,
+    //     'wind': Map<String, dynamic> wind,
+    //     'rain': Map<String, dynamic>? rain,
+    //     'snow': Map<String, dynamic>? snow,
+    //     'clouds': Map<String, dynamic> clouds,
+    //     'dt': num dt,
+    //     'sys': Map<String, dynamic> sys,
+    //     'timezone': num timezone,
+    //     'id': int id,
+    //     'name': String name,
+    //     'cod': int cod,
+    //   } => WeatherModel(
+    //       cord: CordModel.fromJson(cord),
+    //       weather:
+    //         List<CurrentWeatherModel>.from(
+    //           weather.map((json) => CurrentWeatherModel.fromJson(json))
+    //         ),
+    //       base: base,
+    //       main: MainModel.fromJson(main),
+    //       visibility: visibility.toDouble(),
+    //       wind: WindModel.fromJson(wind),
+    //       rain: rain != null? RainModel.fromJson(rain): null,
+    //       snow: snow != null? SnowModel.fromJson(snow): null,
+    //       clouds: CloudsModel.fromJson(clouds),
+    //       dt: dt.toDouble(),
+    //       sys: SysModel.fromJson(sys),
+    //       timezone: timezone.toDouble(),
+    //       id: id,
+    //       name: name,
+    //       cod: cod
+    //     ),
+    //   _ => throw const FormatException('Failed to load'),
+    // };
+    return WeatherModel(
+      cord: CordModel.fromJson(json['coord'] as Map<String, dynamic>),
+      weather: (json['weather'] as List<dynamic>)
+          .map((weatherJson) => CurrentWeatherModel.fromJson(weatherJson as Map<String, dynamic>))
+          .toList(),
+      base: json['base'] as String,
+      main: MainModel.fromJson(json['main'] as Map<String, dynamic>),
+      visibility: (json['visibility'] as num).toDouble(),
+      wind: WindModel.fromJson(json['wind'] as Map<String, dynamic>),
+      rain: json['rain'] != null ? RainModel.fromJson(json['rain'] as Map<String, dynamic>) : null,
+      snow: json['snow'] != null ? SnowModel.fromJson(json['snow'] as Map<String, dynamic>) : null,
+      clouds: CloudsModel.fromJson(json['clouds'] as Map<String, dynamic>),
+      dt: (json['dt'] as num).toDouble(),
+      sys: SysModel.fromJson(json['sys'] as Map<String, dynamic>),
+      timezone: (json['timezone'] as num).toDouble(),
+      id: json['id'] as int,
+      name: json['name'] as String,
+      cod: json['cod'] as int,
+    );
   }
 }
 

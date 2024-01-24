@@ -1,3 +1,5 @@
+import 'package:weather_crypto_app_flutter/models/response/crypto_response_model.dart';
+
 class CryptoItemModel {
   String name;
   String image;
@@ -15,5 +17,15 @@ class CryptoItemModel {
 
   bool checkByName(String name) {
     return this.name == name;
+  }
+
+  factory CryptoItemModel.mapApiResponse(CryptoModel item) {
+    return CryptoItemModel(
+        name: item.name,
+        image: item.image,
+        currentPrice: item.currentPrice,
+        dynamic: item.priceChangePercentage1hInCurrency,
+        isChecked: false
+    );
   }
 }

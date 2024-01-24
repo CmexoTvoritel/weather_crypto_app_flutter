@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:weather_crypto_app_flutter/models/response/crypto_response_model.dart';
 import 'package:weather_crypto_app_flutter/models/response/weather_response_model.dart';
 
 class WeatherApi {

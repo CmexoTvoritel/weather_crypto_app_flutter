@@ -8,22 +8,31 @@ class WeatherMapViewModel extends ViewModel{
 
   final MainRepository _repository = locator<MainRepository>();
   final listTownsStateFlow = StateFlow<List<TownModel>>([]);
+  List<TownModel> listTowns = [];
 
   @override
   void init() async {
     await _repository.getTownsList().then((value) {
       listTownsStateFlow.value = value;
+      listTowns = value;
     });
     super.init();
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
   void setTownName(TownModel town, TypeCard typeCard) {
     _repository.setTown(town.townName, typeCard);
+  }
+
+  void searchQuery(String query) {
+    if(query == "") {
+      listTownsStateFlow.value = listTowns;
+    } else {
+      listTownsStateFlow.value = listTowns.where((item) =>
+          item.townName
+              .toLowerCase()
+              .contains(query.toLowerCase()))
+          .toList();
+    }
   }
 
 }
